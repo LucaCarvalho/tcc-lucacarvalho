@@ -14,7 +14,7 @@ class App:
         self._running = True
         signal(SIGINT, self._handle_signal)
 
-    def loop(self):
+    def loop(self) -> None:
         while self._running:
             logger.debug(f'Local: {self._local_storage.list_files()}')
             logger.debug(f'Remote: {self._remote_storage.list_files()}')

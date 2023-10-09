@@ -4,9 +4,9 @@ from subprocess import run, CompletedProcess
 
 class RemoteStorage(Storage):
     def __init__(self, bucket: str) -> None:
-        self.bucket = bucket
+        self.bucket_name = bucket
         self._s3 = resource('s3')
-        self._bucket = self._s3.Bucket(self.bucket)
+        self._bucket = self._s3.Bucket(self.bucket_name)
 
     def list_files(self) -> list:
         s3_files = []
@@ -16,7 +16,7 @@ class RemoteStorage(Storage):
         return s3_files
     
     def get_base_path(self) -> str:
-        return f's3://{self.bucket}'
+        return f's3://{self.bucket_name}'
     
     def update_file(self, source: str, destination: str) -> None:
         self._bucket.upload_file(source, destination)
