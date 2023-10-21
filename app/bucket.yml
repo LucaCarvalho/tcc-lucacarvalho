@@ -19,6 +19,13 @@ Resources:
           Tierings:
             - AccessTier: ARCHIVE_ACCESS
               Days: 90
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteOldVersions
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 7 # Expired versions will be removed after 7 days
+            ExpiredObjectDeleteMarker: true # Expired objects w/o a current version will be removed
 
 Outputs:
   BucketName:
