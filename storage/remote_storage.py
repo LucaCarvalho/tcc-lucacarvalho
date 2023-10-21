@@ -5,8 +5,7 @@ from subprocess import run, CompletedProcess
 class RemoteStorage(Storage):
     def __init__(self, bucket: str) -> None:
         self.bucket_name = bucket
-        self._s3 = resource('s3')
-        self._bucket = self._s3.Bucket(self.bucket_name)
+        self._bucket = resource('s3').Bucket(self.bucket_name)
 
     def list_files(self) -> list:
         s3_files = []
