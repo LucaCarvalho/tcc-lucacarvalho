@@ -7,9 +7,9 @@ from time import sleep
 
 DOTENV = '.env'
 EXPECTED_ENV_VARS = [
-    'AWS_SECRET_ACCESS_KEY',
-    'AWS_ACCESS_KEY_ID',
-    'AWS_DEFAULT_REGION',
+    # 'AWS_SECRET_ACCESS_KEY',
+    # 'AWS_ACCESS_KEY_ID',
+    # 'AWS_DEFAULT_REGION',
     'BACKUP_BUCKET_NAME',
     'LOCAL_PATH'
 ]
